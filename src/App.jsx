@@ -5,7 +5,7 @@ function App() {
   return (
     <>
       <CssBaseline />
-      {/* <RegisterForm /> */}
+      <RegisterForm />
       <LoginForm />
     </>
   )

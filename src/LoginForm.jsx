@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
@@ -12,13 +13,20 @@ import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import axios from 'axios';
 
 export default function LoginForm() {
-    const [showPassword, setShowPassword] = React.useState(false);
-    const [formData, setformData] = React.useState({
-        Username: "",
-        Password: ""
+    const [showPassword, setShowPassword] = useState(false);
+    const [formData, setformData] = useState({
+        username: "",
+        password: ""
     })
+    const [success, setSuccess] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
+
+
     const handleClickShowPassword = () => setShowPassword((show) => !show);
     const handleChange = (evt) => {
         const fieldName = evt.target.name;
@@ -28,14 +36,42 @@ export default function LoginForm() {
             [fieldName]: value,
         }));
     };
-    const handleSubmit = (evt) => {
+    const handleSubmit = async (evt) => {
         evt.preventDefault();
-        console.log(`Submitted by ${formData.Username}`);
+
+        setLoading(true);
+        setSuccess(false);
+        setError(false);
+
+        try {
+            const response = await axios.post(
+                `http://localhost:3000/user/login`,
+                formData,
+                {
+                    headers: {
+                        "Content-type": "application/json; charset=UTF-8"
+                    },
+                }
+            )
+            console.log(response);
+            setLoading(false);
+            if (response.data.message == 'Login Successful') {
+                localStorage.setItem("token", response.data.token)
+                localStorage.setItem("role", response.data.role)
+                setSuccess(true)
+            }
+            else {
+                setError(true);
+                setErrorMessage(response.data.message)
+            }
+        } catch (err) {
+            setLoading(false);
+            setError(true);
+            setErrorMessage(err.response.data.message)
+        }
     };
     return (
         <>
-            <h2>{formData.Username}</h2>
-            <h2>{formData.Password}</h2>
             <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
 
                 <div>
@@ -45,7 +81,7 @@ export default function LoginForm() {
                         id="outlined-start-adornment"
                         sx={{ m: 1, width: '25ch' }}
                         value={formData.Username}
-                        name='Username'
+                        name='username'
                         onChange={handleChange}
                     />
                     <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
@@ -66,14 +102,16 @@ export default function LoginForm() {
                             }
                             label="Password"
                             value={formData.Password}
-                            name='Password'
+                            name='password'
                             onChange={handleChange}
                         />
                     </FormControl>
                 </div>
             </Box>
             <Button onClick={handleSubmit} variant="contained">Submit</Button>
-
+            {success ? <div>Login Succesful</div> : <></>}
+            {error ? <div>{errorMessage}</div> : <></>}
+            {loading ? <div>Please Wait...</div> : <></>}
         </>
     );
 }

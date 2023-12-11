@@ -2,16 +2,23 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { useState } from 'react';
+import axios from 'axios';
 
 
 export default function RegisterForm() {
     const [formData, setformData] = useState({
-        Name: "",
-        Admission_No: "",
-        Email: "",
-        Username: "",
-        Password: ""
+        name: "",
+        email: "",
+        admission_no: "",
+        username: "",
+        password: ""
     });
+    const [success, setSuccess] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
+
+
     const handleChange = (evt) => {
         const fieldName = evt.target.name;
         const value = evt.target.value;
@@ -20,9 +27,38 @@ export default function RegisterForm() {
             [fieldName]: value,
         }));
     };
-    const handleSubmit = (evt) => {
+    const handleSubmit = async (evt) => {
         evt.preventDefault();
-        console.log(`Submitted by ${formData.Username}`);
+
+        setLoading(true);
+        setSuccess(false);
+        setError(false);
+
+        try {
+            const response = await axios.post(
+                `http://localhost:3000/user/register`,
+                formData,
+                {
+                    headers: {
+                        "Content-type": "application/json; charset=UTF-8"
+                    },
+                }
+            )
+            setLoading(false);
+            if (response.data.message == 'Registration Successful') {
+                localStorage.setItem("token", response.data.token)
+                localStorage.setItem("role", response.data.role)
+                setSuccess(true)
+            }
+            else {
+                setError(true);
+                setErrorMessage(response.data.message)
+            }
+        } catch (err) {
+            setLoading(false);
+            setError(true);
+            setErrorMessage(err.response.data.message)
+        }
     };
 
     return (
@@ -41,45 +77,48 @@ export default function RegisterForm() {
                         required
                         id="outlined-required"
                         label="Name"
-                        name="Name"
-                        value={formData.Name}
+                        name="name"
+                        value={formData.name}
                         onChange={handleChange}
                     />
                     <TextField
                         required
                         id="outlined-required"
                         label="Admission_No"
-                        name="Admission_No"
-                        value={formData.Admission_No}
+                        name="admission_no"
+                        value={formData.admission_no}
                         onChange={handleChange}
                     />
                     <TextField
                         required id="outlined-password-input"
                         label="Email"
                         type="email"
-                        name="Email"
-                        value={formData.Email}
+                        name="email"
+                        value={formData.email}
                         onChange={handleChange}
                     />
                     <TextField
                         required
                         id="outlined-required"
                         label="Username"
-                        name="Username"
-                        value={formData.Username}
+                        name="username"
+                        value={formData.username}
                         onChange={handleChange}
                     />
                     <TextField
                         required id="outlined-password-input"
                         label="Password"
                         type="password"
-                        name="Password"
-                        value={formData.Password}
+                        name="password"
+                        value={formData.password}
                         onChange={handleChange}
                     />
                 </div>
             </Box>
             <Button onClick={handleSubmit} variant="contained">Submit</Button>
+            {success ? <div>Registration Successful</div> : <></>}
+            {error ? <div>{errorMessage}</div> : <></>}
+            {loading ? <div>Registering</div> : <></>}
         </>
     );
 }
