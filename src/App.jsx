@@ -1,5 +1,5 @@
 import CssBaseline from "@mui/material/CssBaseline"
-import RegisterForm from "./registerForm"
+import RegisterForm from "./RegisterForm"
 import LoginForm from "./LoginForm"
 function App() {
   return (
