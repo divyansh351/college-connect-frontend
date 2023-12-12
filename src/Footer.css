@@ -1,0 +1,37 @@
+/* Footer.css */
+
+.footer-container {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+    display: flex;
+    align-items: flex-end;
+    /* Align items to the bottom */
+}
+
+.logo-container {
+    margin-right: 1rem;
+}
+
+.logo-image {
+    max-width: 100%;
+    height: auto;
+}
+
+.contributors-container {
+    display: flex;
+    align-items: center;
+    /* Center items vertically */
+    align-self: stretch;
+    /* Stretch to align with the center of the logo */
+}
+
+.contributor {
+    flex: 0 0 30%;
+    text-align: left;
+    margin-left: 1rem;
+    /* Add margin between contributors */
+}
+
+/* Add additional styles as needed */
