@@ -14,7 +14,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import Logo from './Logo';
+import Logo from '../Logo';
 
 const pages = ['Courses', 'Announcements', 'Clubs'];
 const settings = ['Profile', 'Logout'];
