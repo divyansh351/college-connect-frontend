@@ -23,7 +23,7 @@ export default function Profile() {
         axios.get(`http://localhost:3000/user/view`, {
             headers: { 'Authorization': `Bearer ${token}` }
         })
-            .then((res) => console.log(res.data))
+            .then((res) => setUser(res.data))
             .catch((err) => console.error(err));
     }, [])
 
@@ -31,6 +31,16 @@ export default function Profile() {
         <>
             <h1>Logged In</h1>
             <button onClick={handleLogout}>Logout</button>
+            {!user['user'] ? <h1>Loading</h1> : <></>}
+            {user['user'] ?
+                <>
+                    <div>
+                        {user['user']['name']}
+                    </div>
+                </>
+                : <></>
+
+            }
         </>
     )
 }
