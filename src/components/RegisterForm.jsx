@@ -1,8 +1,10 @@
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
+import AuthVerify from '../helper/JWTVerify';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function RegisterForm() {
@@ -17,7 +19,7 @@ export default function RegisterForm() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
-
+    const navigate = useNavigate();
 
     const handleChange = (evt) => {
         const fieldName = evt.target.name;
@@ -60,6 +62,13 @@ export default function RegisterForm() {
             setErrorMessage(err.response.data.message)
         }
     };
+
+    const token = localStorage.getItem('token')
+    useEffect(() => {
+        setLoading(true);
+        if (AuthVerify(token)) navigate('/profile');
+        setLoading(false);
+    }, [])
 
     return (
         <>

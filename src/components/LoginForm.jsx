@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
@@ -11,6 +12,7 @@ import TextField from '@mui/material/TextField';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import axios from 'axios';
+import AuthVerify from '../helper/JWTVerify';
 
 export default function LoginForm() {
     const [showPassword, setShowPassword] = useState(false);
@@ -22,6 +24,7 @@ export default function LoginForm() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
+    const navigate = useNavigate();
 
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -50,12 +53,12 @@ export default function LoginForm() {
                     },
                 }
             )
-            console.log(response);
             setLoading(false);
             if (response.data.message == 'Login Successful') {
                 localStorage.setItem("token", response.data.token)
                 localStorage.setItem("role", response.data.role)
                 setSuccess(true)
+                navigate("/profile");
             }
             else {
                 setError(true);
@@ -67,6 +70,13 @@ export default function LoginForm() {
             setErrorMessage(err.response.data.message)
         }
     };
+
+    const token = localStorage.getItem('token')
+    useEffect(() => {
+        setLoading(true);
+        if (AuthVerify(token)) navigate('/profile');
+        setLoading(false);
+    }, [])
     return (
         <>
             <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
