@@ -4,9 +4,8 @@ import LoginForm from "./components/LoginForm"
 import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
 import Profile from "./components/Profile"
-import AuthVerify from "./helper/JWTVerify"
 import { Routes, Route } from 'react-router-dom'
-import { useNavigate } from "react-router-dom"
+import Landing from "./components/Landing"
 
 
 function App() {
@@ -15,6 +14,10 @@ function App() {
       <CssBaseline />
       <Navbar />
       <Routes>
+        <Route
+          path="/"
+          element={<Landing />}
+        />
         <Route
           path="/login"
           element={<LoginForm />}

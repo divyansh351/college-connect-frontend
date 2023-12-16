@@ -44,7 +44,6 @@ export default function Navbar() {
             <Container maxWidth="xl">
                 <Toolbar disableGutters sx={{ maxHeight: '40px' }}>
                     <Box sx={{ flexGrow: 0, p: 1 }}>
-                        <Logo />
                     </Box>
 
                     <Typography
