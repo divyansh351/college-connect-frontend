@@ -1,0 +1,61 @@
+/* Post.css */
+
+.post {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+h3 {
+    color: #333;
+}
+
+.content {
+    color: #555;
+}
+
+.info {
+    font-style: italic;
+    color: #777;
+}
+
+.comments-section {
+    margin-top: 16px;
+}
+
+label {
+    margin-right: 8px;
+}
+
+/* Custom dropdown styles */
+.select-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.select-wrapper select {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.select-wrapper:after {
+    content: '\25BC';
+    /* Unicode character for down arrow */
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+/* Optional: Style the dropdown options */
+.select-wrapper select option {
+    background-color: #fff;
+    color: #333;
+}

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './SingleCourse.css'; // Import the external stylesheet
-
+import PostList from './PostList';
 const CourseCard = ({ id }) => {
     const [courseInfo, setCourseInfo] = useState({
         name: '',
@@ -40,16 +40,23 @@ const CourseCard = ({ id }) => {
     const { name, instructor, code } = courseInfo;
 
     return (
-        <div className="course-card">
-            <img src={image} alt={name} className="course-image" />
-            <div className="course-details">
-                <h2 className="course-name">{name}</h2>
-                <p className="instructor-name">Course Code: {code}</p>
-                <p className="instructor-name">Department: {department}</p>
-                <p className="instructor-name">Instructor: {instructor}</p>
-                <p className="semester-offered">
-                    Offered in semester: {OfferedInSemester}
-                </p>
+
+        <div className="course-card-container">
+            <div className="course-card">
+                <img src={image} alt={name} className="course-image" />
+                <div className="course-details">
+                    <h2 className="course-name">{name}</h2>
+                    <p className="instructor-name">Course Code: {code}</p>
+                    <p className="instructor-name">Department: {department}</p>
+                    <p className="instructor-name">Instructor: {instructor}</p>
+                    <p className="semester-offered">
+                        Offered in semester: {OfferedInSemester}
+                    </p>
+                </div>
+            </div>
+            <div className="posts-section">
+                <h3>Posts</h3>
+                <PostList id='6580959b5a9f0bb827be6078' />
             </div>
         </div>
     );

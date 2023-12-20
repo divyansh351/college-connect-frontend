@@ -27,3 +27,19 @@
 .semester-offered {
     margin: 0;
 }
+
+.course-card-container {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 20px;
+    /* Adjust the margin as needed */
+}
+
+.posts-section {
+    width: 80%;
+    /* Adjust the width as needed */
+}
+
+.comments-dropdown {
+    margin-top: 8px;
+}
