@@ -6,7 +6,7 @@ import Footer from "./components/Footer"
 import Profile from "./components/Profile"
 import { Routes, Route } from 'react-router-dom'
 import Landing from "./components/Landing"
-
+import SingleCourse from "./components/SingleCourse"
 
 function App() {
   return (
@@ -29,6 +29,10 @@ function App() {
         <Route
           path="/profile"
           element={<Profile />}
+        />
+        <Route
+          path="/SingleCourse"
+          element={<SingleCourse id='6580959b5a9f0bb827be6078' />}
         />
       </Routes>
       <Footer />
