@@ -11,6 +11,7 @@ export function AuthVerify() {
     if (accessToken) {
         const decodedJwt = parseJwt(accessToken);
         if (decodedJwt.exp * 1000 < Date.now()) {
+            localStorage.clear();
             return false;
         }
     }

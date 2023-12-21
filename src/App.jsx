@@ -31,12 +31,12 @@ function App() {
           element={<Profile />}
         />
         <Route
-          path="/SingleCourse"
-          element={<SingleCourse id='6580959b5a9f0bb827be6078' />}
+          path="/course"
+          element={<CourseList />}
         />
         <Route
-          path="/Courses"
-          element={<CourseList />}
+          path="/course/:id"
+          element={<SingleCourse />}
         />
       </Routes>
       <Footer />

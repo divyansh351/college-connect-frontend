@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './CourseCard.css'; // Import the external stylesheet
 import PostList from './PostList';
-const CourseCard = ({ id }) => {
+import { useNavigate } from 'react-router-dom';
+const CourseCard = ({ id, linkDisable = false }) => {
     const [courseInfo, setCourseInfo] = useState({
+        id: '',
         name: '',
         instructor: '',
         code: '',
@@ -13,6 +15,7 @@ const CourseCard = ({ id }) => {
     const OfferedInSemester = 'Winter'
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchData = async (id) => {
@@ -40,7 +43,11 @@ const CourseCard = ({ id }) => {
     const { name, instructor, code } = courseInfo;
 
     return (
-        <div className="course-card">
+        <div
+            onClick={linkDisable ? () => { } : () => navigate(`/course/${id}`)}
+            style={linkDisable ? {} : { "cursor": "pointer" }}
+            className="course-card"
+        >
             <img src={image} alt={name} className="course-image" />
             <div className="course-details">
                 <h2 className="course-name">{name}</h2>
