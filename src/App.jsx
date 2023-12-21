@@ -8,6 +8,7 @@ import { Routes, Route } from 'react-router-dom'
 import Landing from "./components/Landing"
 import SingleCourse from "./components/SingleCourse"
 import CourseList from "./components/CourseList"
+import PostForm from "./components/PostForm"
 function App() {
   return (
     <>
