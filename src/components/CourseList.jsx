@@ -21,7 +21,7 @@ export default function CourseList() {
     return (
         <div className="course-list-container">
             {courses.map((course, index) => (
-                <CourseCard key={index} id={course._id} />
+                <CourseCard key={index} id={course._id} linkDisable={false} />
             ))}
             <style jsx>{`
             .course-list-container {

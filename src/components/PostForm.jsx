@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 
 const PostForm = ({ course_id }) => {
     const [formData, setformData] = useState({
@@ -42,16 +43,15 @@ const PostForm = ({ course_id }) => {
                     }
                 }
             )
-            console.log(response);
             setLoading(false);
-            // if (response.data.message == 'successfully posted') {
-            //     setSuccess(true)
-            //     navigate(`/course/${course_id}`);
-            // }
-            // else {
-            //     setError(true);
-            //     setErrorMessage(response.data.message)
-            // }
+            if (response.data.message == 'successfully posted') {
+                setSuccess(true)
+                window.location.reload();
+            }
+            else {
+                setError(true);
+                setErrorMessage(response.data.message)
+            }
         } catch (err) {
             setLoading(false);
             setError(true);
