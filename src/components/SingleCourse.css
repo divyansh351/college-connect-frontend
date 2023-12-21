@@ -1,33 +1,3 @@
-.course-card {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    overflow: hidden;
-    margin: 16px;
-    width: 300px;
-}
-
-.course-image {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-}
-
-.course-details {
-    padding: 16px;
-}
-
-.course-name {
-    margin: 0 0 8px;
-}
-
-.instructor-name {
-    margin: 0 0 8px;
-}
-
-.semester-offered {
-    margin: 0;
-}
-
 .course-card-container {
     display: flex;
     justify-content: space-between;
@@ -38,8 +8,4 @@
 .posts-section {
     width: 80%;
     /* Adjust the width as needed */
-}
-
-.comments-dropdown {
-    margin-top: 8px;
 }
