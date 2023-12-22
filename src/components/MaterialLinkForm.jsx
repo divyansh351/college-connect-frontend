@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const PostForm = ({ course_id }) => {
+const MaterialLinkForm = ({ course_id }) => {
     const [formData, setformData] = useState({
+        course_id: course_id,
         title: '',
-        content: '',
-        course_id: course_id
+        link: ''
     })
     const [success, setSuccess] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -33,7 +33,7 @@ const PostForm = ({ course_id }) => {
             console.log(formData);
             console.log(token);
             const response = await axios.post(
-                `https://college-connect-backend-0x0i.onrender.com/post/new`,
+                `https://college-connect-backend-0x0i.onrender.com/course/add_material_link`,
                 formData,
                 {
                     headers: {
@@ -42,7 +42,7 @@ const PostForm = ({ course_id }) => {
                 }
             )
             setLoading(false);
-            if (response.data.message == 'successfully posted') {
+            if (response.data.message == 'material link succesfully saved') {
                 setSuccess(true)
                 window.location.reload();
             }
@@ -70,11 +70,11 @@ const PostForm = ({ course_id }) => {
                     />
                 </div>
                 <div>
-                    <label htmlFor="content">Content:</label>
+                    <label htmlFor="link">Link:</label>
                     <textarea
-                        id="content"
-                        value={formData.content}
-                        name="content"
+                        id="link"
+                        value={formData.link}
+                        name="link"
                         onChange={handleChange}
                     />
                 </div>
@@ -89,4 +89,4 @@ const PostForm = ({ course_id }) => {
     );
 };
 
-export default PostForm;
+export default MaterialLinkForm;

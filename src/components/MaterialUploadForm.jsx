@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const PostForm = ({ course_id }) => {
+const MaterialUploadForm = ({ course_id }) => {
     const [formData, setformData] = useState({
+        course_id: course_id,
         title: '',
-        content: '',
-        course_id: course_id
     })
+    const [material, setMaterial] = useState([])
     const [success, setSuccess] = useState(false);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
@@ -27,22 +27,29 @@ const PostForm = ({ course_id }) => {
         setSuccess(false);
         setError(false);
         const token = localStorage.getItem('token');
-
+        const ReactFormData = new FormData();
+        for (let prop in formData) {
+            ReactFormData.append(prop, formData[prop]);
+        }
+        console.log(material);
+        for (const mat of material) { // images is an array of File Object
+            ReactFormData.append('material', mat, mat.name); // multiple upload
+        }
 
         try {
-            console.log(formData);
             console.log(token);
             const response = await axios.post(
-                `https://college-connect-backend-0x0i.onrender.com/post/new`,
-                formData,
+                `https://college-connect-backend-0x0i.onrender.com/course/add_material_direct`,
+                ReactFormData,
                 {
                     headers: {
+                        'Content-Type': `multipart/form-data`,
                         'Authorization': `Bearer ${token}`
                     }
                 }
             )
             setLoading(false);
-            if (response.data.message == 'successfully posted') {
+            if (response.data.message == 'material succesfully uploaded') {
                 setSuccess(true)
                 window.location.reload();
             }
@@ -56,6 +63,13 @@ const PostForm = ({ course_id }) => {
             setErrorMessage(err.response.data.message)
         }
     };
+
+
+    const handleMaterialChange = (e) => {
+        setMaterial(e.target.files);
+    }
+
+
     return (
         <div>
             <form>
@@ -70,12 +84,12 @@ const PostForm = ({ course_id }) => {
                     />
                 </div>
                 <div>
-                    <label htmlFor="content">Content:</label>
-                    <textarea
-                        id="content"
-                        value={formData.content}
-                        name="content"
-                        onChange={handleChange}
+                    <label htmlFor="material">Material (PDF ONLY):</label>
+                    <input
+                        type="file"
+                        id="material"
+                        name="material"
+                        onChange={handleMaterialChange}
                     />
                 </div>
                 <button type="button" onClick={handleSubmit}>
@@ -89,4 +103,4 @@ const PostForm = ({ course_id }) => {
     );
 };
 
-export default PostForm;
+export default MaterialUploadForm;
