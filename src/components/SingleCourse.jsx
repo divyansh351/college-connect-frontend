@@ -6,6 +6,9 @@ import { useParams } from 'react-router-dom';
 import PostForm from './PostForm';
 import MaterialLinkForm from './MaterialLinkForm';
 import MaterialUploadForm from './MaterialUploadForm';
+import MaterialList from './MaterialList';
+
+
 const SingleCourse = () => {
     const { id } = useParams();
     const [materialFormView, setMaterialFormView] = useState(false);
@@ -38,6 +41,7 @@ const SingleCourse = () => {
                 </> :
                     <button onClick={() => setMaterialFormView(!materialFormView)}>Upload Material</button>
                 }
+                <MaterialList id={id} />
 
             </div>
             <div className="posts-section">
