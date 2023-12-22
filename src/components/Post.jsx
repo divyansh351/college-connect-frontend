@@ -1,39 +1,74 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Post.css';
+import axios from 'axios';
+import CommentForm from './CommentForm';
+import moment from 'moment';
 
-const Post = ({ title, content, date, uploader, comments }) => {
-    const [selectedComment, setSelectedComment] = useState(null);
+const Post = ({ _id, title, content, date, uploader }) => {
+    const [comments, setComments] = useState([]);
+    const [viewComment, setViewComment] = useState(false);
+    const [viewCommentForm, setViewCommentForm] = useState(false);
+    const [uploaderName, setUploaderName] = useState('');
+    const [success, setSuccess] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
+    const dt = moment(date).format('DD-MM-YYYY');
 
-    const handleCommentChange = (event) => {
-        setSelectedComment(event.target.value);
-    };
+    useEffect(() => {
+        const fetchUploader = async (id) => {
+            try {
+                const response = await axios.get(`https://college-connect-backend-0x0i.onrender.com/user/${id}/get_name`)
+                setUploaderName(response.data.name);
+            }
+            catch (err) {
+                setError(true);
+                setErrorMessage(err.message);
+            }
+        };
+        fetchUploader(uploader)
+    }, [])
+    const handleViewComment = async (evt) => {
+        evt.preventDefault();
+        setLoading(true);
+        setSuccess(false);
+        setError(false);
+        try {
+            if (!comments.length) {
+                const response = await axios.get(
+                    `https://college-connect-backend-0x0i.onrender.com/post/${_id}/comments`,
+                )
+                setComments(response.data);
+            }
+            setViewComment(true);
+            setLoading(false);
+        }
+        catch (err) {
+            console.log(err);
+        }
+    }
+    const handleViewCommentForm = () => setViewCommentForm(!viewCommentForm);
+    const handleCollapse = () => setViewComment(false);
 
     return (
         <div className="post">
             <h3>{title}</h3>
             <p className="content">{content}</p>
-            <p className="info">Uploader: {uploader}</p>
-            <p className="info">Date: {date}</p>
-            <div className="comments-section">
-                <label htmlFor={`comments-dropdown-${date}`}></label>
-                <div className="select-wrapper">
-                    <select
-                        id={`comments-dropdown-${date}`}
-                        onChange={handleCommentChange}
-                        value={selectedComment}
-                        style={{ width: selectedComment ? `${selectedComment.length + 10}ch` : 'auto' }}
-                    >
-                        <option disabled selected value="">
-                            View Comments
-                        </option>
-                        {comments.map((comment, index) => (
-                            <option key={index} value={comment}>
-                                {comment}
-                            </option>
-                        ))}
-                    </select>
-                </div>
-            </div>
+            <p className="info">By: {uploaderName}</p>
+            <p className="info">On: {dt}</p>
+            {viewCommentForm ? <><button onClick={handleViewCommentForm}>Close Form</button><CommentForm post_id={_id} /></> : <><button onClick={handleViewCommentForm}>Add A Comment</button></>}
+
+            {
+                viewComment ? <>
+                    <button onClick={handleCollapse}>Collapse</button>
+                    {comments.length ?
+                        comments.map((comment, index) => (
+                            <p key={index}>{comment.content}</p>
+                        ))
+                        : <p>Nothing To Show :)</p>}
+
+                </> : <button onClick={handleViewComment}>Comments</button>
+            }
         </div>
     );
 };

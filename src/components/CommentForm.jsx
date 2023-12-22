@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
-const PostForm = ({ post_id }) => {
+const CommentForm = ({ post_id }) => {
     const [formData, setformData] = useState({
         content: '',
         post_id: post_id
@@ -11,7 +11,6 @@ const PostForm = ({ post_id }) => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
-    const navigate = useNavigate();
     const handleChange = (evt) => {
         const fieldName = evt.target.name;
         const value = evt.target.value;
@@ -78,4 +77,4 @@ const PostForm = ({ post_id }) => {
     );
 };
 
-export default PostForm;
+export default CommentForm;

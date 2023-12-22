@@ -11,9 +11,6 @@ const PostList = ({ id }) => {
         const fetchData = async (id) => {
             try {
                 const response = await axios.get(`https://college-connect-backend-0x0i.onrender.com/course/${id}`);
-                console.log("API Response:", response.data);
-
-                // Check if associated_posts is an array
                 if (Array.isArray(response.data.associated_posts)) {
                     setPosts(response.data.associated_posts);
                 } else {

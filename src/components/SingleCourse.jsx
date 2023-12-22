@@ -9,10 +9,11 @@ const SingleCourse = () => {
     return (
         <div className="course-card-container">
             <CourseCard id={id} linkDisable={true} />
-            <PostForm course_id={id} />
             <div className="posts-section">
-                <h3>Posts</h3>
-                {/* <PostList id='6580959b5a9f0bb827be6078' /> */}
+                <h3>Add A New Post</h3>
+                <PostForm course_id={id} />
+                <h3>All Posts</h3>
+                <PostList id={id} />
             </div>
         </div>
     );

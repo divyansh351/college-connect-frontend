@@ -12,7 +12,6 @@ const PostForm = ({ course_id }) => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
-    const navigate = useNavigate();
     const handleChange = (evt) => {
         const fieldName = evt.target.name;
         const value = evt.target.value;
