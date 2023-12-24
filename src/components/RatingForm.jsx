@@ -45,14 +45,16 @@ const RatingForm = ({ course_id }) => {
                     }
                 }
             )
+
             setLoading(false);
-            if (response.data.message == 'successfully rated') {
+            if (response.data.message == 'succesfully rated') {
                 setSuccess(true)
                 window.location.reload();
             }
             else {
                 setError(true);
                 setErrorMessage(response.data.message)
+                console.log(error);
             }
         } catch (err) {
             setLoading(false);
