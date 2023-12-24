@@ -38,7 +38,7 @@ export default function RegisterForm() {
 
         try {
             const response = await axios.post(
-                `http://localhost:3000/user/register`,
+                `https://college-connect-backend-0x0i.onrender.com/user/register`,
                 formData,
                 {
                     headers: {

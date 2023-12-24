@@ -20,7 +20,7 @@ export default function Profile() {
     useEffect(() => {
         setLoading(true);
         if (!AuthVerify(token)) navigate('/login');
-        axios.get(`http://localhost:3000/user/view`, {
+        axios.get(`https://college-connect-backend-0x0i.onrender.com/user/view`, {
             headers: { 'Authorization': `Bearer ${token}` }
         })
             .then((res) => setUser(res.data))
