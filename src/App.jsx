@@ -8,7 +8,7 @@ import { Routes, Route } from 'react-router-dom'
 import Landing from "./components/Landing"
 import SingleCourse from "./components/SingleCourse"
 import CourseList from "./components/CourseList"
-import PostForm from "./components/PostForm"
+import RatingForm from "./components/RatingForm"
 function App() {
   return (
     <>
@@ -38,6 +38,10 @@ function App() {
         <Route
           path="/course/:id"
           element={<SingleCourse />}
+        />
+        <Route
+          path="/course/rating/new"
+          element={<RatingForm />}
         />
       </Routes>
       <Footer />
