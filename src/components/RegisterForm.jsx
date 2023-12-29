@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import AuthVerify from '../helper/JWTVerify';
 import { useNavigate } from 'react-router-dom';
-
+import { Translate } from '@mui/icons-material';
 
 export default function RegisterForm() {
     const [formData, setformData] = useState({
@@ -29,6 +29,7 @@ export default function RegisterForm() {
             [fieldName]: value,
         }));
     };
+
     const handleSubmit = async (evt) => {
         evt.preventDefault();
 
@@ -47,7 +48,7 @@ export default function RegisterForm() {
                 }
             )
             setLoading(false);
-            if (response.data.message == 'Registration Successful') {
+            if (response.data.message === 'Registration Successful') {
                 localStorage.setItem("token", response.data.token)
                 localStorage.setItem("role", response.data.role)
                 setSuccess(true)
@@ -71,63 +72,82 @@ export default function RegisterForm() {
     }, [])
 
     return (
-        <>
-            <h1>Registration Form</h1>
+        <div style={{ backgroundImage: 'url("https://img.freepik.com/premium-photo/abstract-blur-library-blurred-book-shelves-hall-generative-ai_791316-6098.jpg")', backgroundSize: 'cover', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+
             <Box
                 component="form"
                 sx={{
-                    '& .MuiTextField-root': { m: 1, width: '25ch' },
+                    '& .MuiTextField-root': { marginBottom: '16px' },
+                    '& .MuiButton-root': { marginTop: '16px' },
+                    width: '500px',
+                    backgroundColor: 'rgba(255, 255, 255, 0.8)', // Set a background color for the form
+                    padding: '20px',
+                    borderRadius: '8px',
+                    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
                 }}
                 noValidate
                 autoComplete="off"
             >
-                <div>
+                <div >
+                    <h1 style={{
+                        fontFamily: 'Raleway, sans-serif',
+                        color: '#3498db',
+                        fontSize: '2.5rem',
+                        fontWeight: 'bold',
+                        textShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)',
+                        marginBottom: '20px',
+                        marginLeft: '60px'
+                    }}>College-Connect</h1>
                     <TextField
                         required
-                        id="outlined-required"
                         label="Name"
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
+                        fullWidth
                     />
                     <TextField
                         required
-                        id="outlined-required"
-                        label="Admission_No"
+                        label="Admission No"
                         name="admission_no"
                         value={formData.admission_no}
                         onChange={handleChange}
+                        fullWidth
                     />
                     <TextField
-                        required id="outlined-password-input"
+                        required
                         label="Email"
                         type="email"
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
+                        fullWidth
                     />
                     <TextField
                         required
-                        id="outlined-required"
                         label="Username"
                         name="username"
                         value={formData.username}
                         onChange={handleChange}
+                        fullWidth
                     />
                     <TextField
-                        required id="outlined-password-input"
+                        required
                         label="Password"
                         type="password"
                         name="password"
                         value={formData.password}
                         onChange={handleChange}
+                        fullWidth
                     />
                 </div>
-            </Box>
-            <Button onClick={handleSubmit} variant="contained">Submit</Button>
-            {success ? <div>Registration Successful</div> : <></>}
-            {error ? <div>{errorMessage}</div> : <></>}
-            {loading ? <div>Registering</div> : <></>}
-        </>
+                <Button onClick={handleSubmit} variant="contained" fullWidth>
+                    Register
+                </Button>
+                {success && <div>Registration Successful</div>}
+                {error && <div>{errorMessage}</div>}
+                {loading && <div>Registering</div>}
+            </Box >
+        </div >
     );
 }
