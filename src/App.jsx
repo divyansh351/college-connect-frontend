@@ -12,7 +12,6 @@ function App() {
   return (
     <>
       <CssBaseline />
-      <Navbar />
       <Routes>
         <Route
           path="/"
@@ -39,7 +38,6 @@ function App() {
           element={<SingleCourse />}
         />
       </Routes>
-      <Footer />
     </>
   )
 }

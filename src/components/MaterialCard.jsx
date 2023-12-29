@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import "./MaterialCard.css"
 
 const MaterialCard = ({ title, url, uploader }) => {
     const [uploaderName, setUploaderName] = useState('');
@@ -23,7 +24,7 @@ const MaterialCard = ({ title, url, uploader }) => {
     }, [])
 
     return (
-        <div className="material" style={{ "border": "1px solid #ccc", "borderRadius": "8px", "padding": "16px", "marginBottom": "16px" }}>
+        <div className="material">
             <h4><a href={url}>{title}</a></h4>
             <p>By: {uploaderName}</p>
         </div>

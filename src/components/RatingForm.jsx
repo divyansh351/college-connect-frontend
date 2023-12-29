@@ -80,7 +80,7 @@ const RatingForm = ({ course_id }) => {
                 <Typography component="legend">Criteria5</Typography>
                 <Rating name='criteria5' value={formData.criteria5} onChange={handleChange} />
                 <br />
-                <Button onClick={handleSubmit} variant="contained">Submit</Button>
+                <button onClick={handleSubmit} variant="contained">Submit</button>
 
             </Box>
             {success ? <div>Rating Posted</div> : <></>}

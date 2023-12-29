@@ -57,7 +57,7 @@ const Post = ({ _id, title, content, date, uploader }) => {
             <p className="info">By: {uploaderName}</p>
             <p className="info">On: {dt}</p>
             {viewCommentForm ? <><button onClick={handleViewCommentForm}>Close Form</button><CommentForm post_id={_id} /></> : <><button onClick={handleViewCommentForm}>Add A Comment</button></>}
-
+            <br />
             {
                 viewComment ? <>
                     <button onClick={handleCollapse}>Collapse</button>

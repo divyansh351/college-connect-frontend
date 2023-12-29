@@ -1,0 +1,15 @@
+.material {
+    padding: 16px;
+    border-radius: 20px;
+    background: #ededed;
+    overflow: hidden;
+    margin: 8px;
+}
+
+h4 {
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}

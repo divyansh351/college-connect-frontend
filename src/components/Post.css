@@ -1,13 +1,15 @@
 /* Post.css */
 
 .post {
-    border: 1px solid #ccc;
-    border-radius: 8px;
     padding: 16px;
-    margin-bottom: 16px;
+    border-radius: 20px;
+    background: #ededed;
+    overflow: hidden;
+    margin: 8px;
 }
 
 h3 {
+    margin: 0;
     color: #333;
 }
 
@@ -17,6 +19,7 @@ h3 {
 
 .info {
     font-style: italic;
+    margin: 0;
     color: #777;
 }
 
@@ -26,36 +29,4 @@ h3 {
 
 label {
     margin-right: 8px;
-}
-
-/* Custom dropdown styles */
-.select-wrapper {
-    position: relative;
-    display: inline-block;
-}
-
-.select-wrapper select {
-    appearance: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.select-wrapper:after {
-    content: '\25BC';
-    /* Unicode character for down arrow */
-    position: absolute;
-    top: 50%;
-    right: 12px;
-    transform: translateY(-50%);
-    pointer-events: none;
-}
-
-/* Optional: Style the dropdown options */
-.select-wrapper select option {
-    background-color: #fff;
-    color: #333;
 }

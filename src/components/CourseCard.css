@@ -1,14 +1,14 @@
 .course-card {
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    border-radius: 20px;
+    background: #ededed;
     overflow: hidden;
-    margin: 16px;
+    margin: 8px;
     width: 300px;
 }
 
 .course-image {
     width: 100%;
-    height: 150px;
+    height: 180px;
     object-fit: cover;
 }
 
@@ -16,14 +16,12 @@
     padding: 16px;
 }
 
-.course-name {
-    margin: 0 0 8px;
+p {
+    margin-top: 0;
+    margin-bottom: 0.5em;
 }
 
-.instructor-name {
-    margin: 0 0 8px;
-}
-
-.semester-offered {
-    margin: 0;
+h2 {
+    margin-top: 0;
+    margin-bottom: 0.5em;
 }

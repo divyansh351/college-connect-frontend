@@ -15,6 +15,7 @@ const SingleCourse = () => {
     const [materialFormView, setMaterialFormView] = useState(false);
     const [materialUploadFormView, setMaterialUploadFormView] = useState(false);
     const [materialLinkFormView, setMaterialLinkFormView] = useState(false);
+    const [ratingFormView, setRatingFormView] = useState(false);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [stars, setStars] = useState([]);
@@ -63,7 +64,16 @@ const SingleCourse = () => {
                 }
                 <MaterialList id={id} />
                 {loading ? <p>Loading...</p> : <RatingCard stars={stars} length={length} />}
-                <RatingForm course_id={id} />
+                {
+                    ratingFormView ?
+                        <>
+                            <button onClick={() => setRatingFormView(!ratingFormView)}>Close</button>
+                            <RatingForm course_id={id} />
+                        </> :
+                        <button onClick={() => setRatingFormView(!ratingFormView)}>Rate Course</button>
+
+                }
+
             </div>
             <div className="posts-section">
                 <h3>Add A New Post</h3>

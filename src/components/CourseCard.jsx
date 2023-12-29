@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './CourseCard.css'; // Import the external stylesheet
-import PostList from './PostList';
+import './CourseCard.css';
 import { useNavigate } from 'react-router-dom';
 const CourseCard = ({ id, linkDisable = false }) => {
     const [courseInfo, setCourseInfo] = useState({
@@ -51,12 +50,10 @@ const CourseCard = ({ id, linkDisable = false }) => {
             <img src={image} alt={name} className="course-image" />
             <div className="course-details">
                 <h2 className="course-name">{name}</h2>
-                <p className="instructor-name">Course Code: {code}</p>
-                <p className="instructor-name">Department: {department}</p>
-                <p className="instructor-name">Instructor: {instructor}</p>
-                <p className="semester-offered">
-                    Offered in semester: {OfferedInSemester}
-                </p>
+                <p>Course Code: {code}</p>
+                <p>Department: {department}</p>
+                <p>Instructor: {instructor}</p>
+                <p>Offered in semester: {OfferedInSemester}</p>
             </div>
         </div>
     );

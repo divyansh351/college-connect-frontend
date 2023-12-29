@@ -1,10 +1,22 @@
 /* src/index.css */
+@font-face {
+    font-family: "Roboto";
+    src: url("/public/fonts/Lexend-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("/public/fonts/Lexend-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
 
 body {
     margin: 0;
     padding: 0;
-    background-image: url('https://img.freepik.com/premium-photo/abstract-blur-library-blurred-book-shelves-hall-generative-ai_791316-6098.jpg');
-    background-size: cover;
-    background-position: center;
-    min-height: 100vh;
+    font-family: "Roboto", sans-serif;
+    background-color: #f6ffd6;
+    /* background-image: url('./assets/bgimg.svg'); */
 }

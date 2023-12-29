@@ -55,7 +55,7 @@ const CommentForm = ({ post_id }) => {
         }
     };
     return (
-        <div>
+        <>
             <form>
                 <div>
                     <label htmlFor="content">Content:</label>
@@ -73,7 +73,7 @@ const CommentForm = ({ post_id }) => {
             {success ? <div>Comment Posted</div> : <></>}
             {error ? <div>{errorMessage}</div> : <></>}
             {loading ? <div>Registering</div> : <></>}
-        </div>
+        </>
     );
 };
 
