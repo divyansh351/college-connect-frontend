@@ -47,7 +47,7 @@ const CourseCard = ({ id, linkDisable = false }) => {
             style={linkDisable ? {} : { "cursor": "pointer" }}
             className="course-card"
         >
-            <img src={image} alt={name} className="course-image" />
+            {/*<img src={image} alt={name} className="course-image" />*/}
             <div className="course-details">
                 <h2 className="course-name">{name}</h2>
                 <p>Course Code: {code}</p>

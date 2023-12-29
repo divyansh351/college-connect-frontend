@@ -1,13 +1,6 @@
-.course-card-container {
+.container-one {
     display: flex;
-    justify-content: space-between;
-    margin-right: 20px;
     /* Adjust the margin as needed */
-}
-
-.posts-section {
-    width: 80%;
-    /* Adjust the width as needed */
 }
 
 button {
