@@ -84,6 +84,7 @@ const SingleCourse = () => {
                     <MaterialList id={id} />
                     {materialFormView ? <>
                         <button onClick={() => setMaterialFormView(!materialFormView)}>Close</button>
+                        <br />
                         {
                             materialUploadFormView ?
                                 <>
@@ -92,6 +93,7 @@ const SingleCourse = () => {
                                 </> :
                                 <button onClick={() => setMaterialUploadFormView(!materialUploadFormView)}>Upload Pdf</button>
                         }
+                        <br />
                         {
                             materialLinkFormView ?
                                 <>
@@ -105,7 +107,7 @@ const SingleCourse = () => {
                         <button onClick={() => setMaterialFormView(!materialFormView)}>Upload Material</button>
                     }
                 </div>
-
+                <br />
                 <div className='right-bot'>
                     <h3>All Posts</h3>
                     <PostList id={id} />

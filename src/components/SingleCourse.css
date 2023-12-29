@@ -16,15 +16,6 @@
     margin: 2% 0% 2% 0%;
     width: 100%;
 }
-.container-one-bot {
-    display: flex;
-    justify-content: center;
-    background: #ededed88;
-    margin: 2% 10% 2% 10%;
-    width: 80%;
-    border-radius: 20px;
-}
-
 .category-rating {
     display: flex;
     justify-content: center;
@@ -36,16 +27,22 @@
     padding: 5% 0 5% 0;
     text-align: left;
 }
-
 .mid-top {
     width: 12%;
     padding: 1.6% 0 0% 0;
-    margin: 0 3% 4.2% 0;
+    margin: 0 3% 4% 0;
 }
-
 .right-top {
     width: 12%;
-    padding: 2% 0 1% 0;
+    padding: 2% 0 0.8% 0;
+}
+
+.container-one-bot {
+    display: flex;
+    justify-content: center;
+    background: #ededed88;
+    margin: 2% 0% 2% 0%;
+    width: 100%;
 }
 
 .left-bot {
@@ -105,10 +102,38 @@ button:hover {
 @media (max-width: 700px) {
     .container-one-top {
         display: block;
-        margin: 2% 5% 2% 5%;
-        width: 90%;
+        margin: 2% 0% 2% 0%;
+        width: 100%;
     }
+
+    .left-top {
+        width: 100%;
+        padding: 5% 0 5% 0;
+        text-align: center;
+    }
+
+    .mid-top {
+        width: 100%;
+        padding: 1.6% 0 0% 0;
+        margin: 0 3% 4.2% 0;
+    }
+
+    .right-top {
+        width: 100%;
+        padding: 2% 0 1% 0;
+    }
+
     .container-one-bot {
         display: block;
+        margin: 2% 0% 2% 0%;
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .left-bot {
+        width: 100%;
+    }
+    .right-bot {
+        width: 100%;
     }
 }
