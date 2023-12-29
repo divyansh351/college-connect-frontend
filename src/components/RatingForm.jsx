@@ -65,23 +65,23 @@ const RatingForm = ({ course_id }) => {
     return (
         <div>
             <Box>
-                <div style={{ display: 'flex' }}>
+                <div style={{ display: 'block' }}>
                     <Typography component="legend">Criteria1: </Typography>
                     <Rating name='criteria1' value={formData.criteria1} onChange={handleChange} />
                 </div>
-                <div style={{ display: 'flex' }}>
+                <div style={{ display: 'block' }}>
                     <Typography component="legend">Criteria2:  </Typography>
                     <Rating name='criteria2' value={formData.criteria2} onChange={handleChange} />
                 </div>
-                <div style={{ display: 'flex' }}>
+                <div style={{ display: 'block' }}>
                     <Typography component="legend">Criteria3:  </Typography>
                     <Rating name='criteria3' value={formData.criteria3} onChange={handleChange} />
                 </div>
-                <div style={{ display: 'flex' }}>
+                <div style={{ display: 'block' }}>
                     <Typography component="legend">Criteria4:  </Typography>
                     <Rating name='criteria4' value={formData.criteria4} onChange={handleChange} />
                 </div>
-                <div style={{ display: 'flex' }}>
+                <div style={{ display: 'block' }}>
                     <Typography component="legend">Criteria5:  </Typography>
                     <Rating name='criteria5' value={formData.criteria5} onChange={handleChange} />
                 </div>

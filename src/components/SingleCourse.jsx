@@ -27,11 +27,12 @@ const SingleCourse = () => {
         name: '',
         instructor: '',
         code: '',
+        description: ''
     });
     const image = 'https://thumbor.forbes.com/thumbor/fit-in/900x510/https://www.forbes.com/advisor/wp-content/uploads/2022/06/software_engineer.jpeg.jpg'
     const department = 'Computer Science'
     const OfferedInSemester = 'Winter'
-    const { name, instructor, code } = courseInfo;
+    const { name, instructor, code, description } = courseInfo;
     useEffect(() => {
         const fetchData = async (id) => {
             try {
@@ -54,14 +55,17 @@ const SingleCourse = () => {
             {/*<div className="background-container" style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', minHeight: '100vh', opacity: '0.8' }} />*/}
             <div className='container-one-top'>
                 <div className='left-top'>
-                    <h2 className="course-name">{name}</h2>
-                    <p>Course Code: {code}</p>
-                    <p>Department: {department}</p>
-                    <p>Instructor: {instructor}</p>
-                    <p>Offered in semester: {OfferedInSemester}</p>
+                    <h1 className="main-heading">{name}</h1>
+                    <h3 className='sub-heading'>{code}</h3>
+                    <p className='det'>Instructor:<strong> {instructor}</strong></p>
+                    <p className='det'>Description: <strong> {description}</strong></p>
+                    <p className='det'>Overall Rating: <strong>3 Stars</strong></p>
+                </div>
+                <div className='mid-top'>
+                    <h2>Ratings</h2>
+                    {loading ? <p>Loading...</p> : <RatingCard stars={stars} length={length} />}
                 </div>
                 <div className='right-top'>
-                    {loading ? <p>Loading...</p> : <RatingCard stars={stars} length={length} />}
                     {
                         ratingFormView ?
                             <>

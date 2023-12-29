@@ -3,43 +3,58 @@ import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
 
 const RatingCard = ({ stars, length }) => {
-    const goldenStarStyle = { color: 'gold' };
+    const goldenStarStyle = { color: '#faaf00' };
     console.log(stars);
     console.log(length);
     return (
         <div>
             <div className='category-rating'>
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                    <span>Criteria 1:</span>
-                    <span style={{ marginLeft: '8px' }}>{length ? stars[0] / length : 0}</span>
+                <div style={{ display: 'block', alignItems: 'center' }}>
+                    <div>Criteria 1:<span style={{ marginLeft: '8px' }}>{length ? stars[0] / length : 0}</span></div>
+                    <StarIcon style={{ ...goldenStarStyle, marginLeft: '4px' }} />
+                    <StarIcon style={{ ...goldenStarStyle, marginLeft: '4px' }} />
+                    <StarIcon style={{ ...goldenStarStyle, marginLeft: '4px' }} />
+                    <StarIcon style={{ ...goldenStarStyle, marginLeft: '4px' }} />
                     <StarIcon style={{ ...goldenStarStyle, marginLeft: '4px' }} />
                 </div>
             </div>
             <div className='category-rating'>
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                    <span>Criteria 2:</span>
-                    <span style={{ marginLeft: '8px' }}>{length ? stars[1] / length : 0}</span>
+                <div style={{ display: 'block', alignItems: 'center' }}>
+                    <div>Criteria 2: <span style={{ marginLeft: '8px' }}>{length ? stars[1] / length : 0}</span></div>
+                    <StarIcon style={{ ...goldenStarStyle, marginLeft: '4px' }} />
+                    <StarIcon style={{ ...goldenStarStyle, marginLeft: '4px' }} />
+                    <StarIcon style={{ ...goldenStarStyle, marginLeft: '4px' }} />
+                    <StarIcon style={{ ...goldenStarStyle, marginLeft: '4px' }} />
                     <StarIcon style={{ ...goldenStarStyle, marginLeft: '4px' }} />
                 </div>
             </div>
             <div className='category-rating'>
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                    <span>Criteria 3:</span>
-                    <span style={{ marginLeft: '8px' }}>{length ? stars[2] / length : 0}</span>
+                <div style={{ display: 'block', alignItems: 'center' }}>
+                    <div>Criteria 3: <span style={{ marginLeft: '8px' }}>{length ? stars[2] / length : 0}</span></div>
+                    <StarIcon style={{ ...goldenStarStyle, marginLeft: '4px' }} />
+                    <StarIcon style={{ ...goldenStarStyle, marginLeft: '4px' }} />
+                    <StarIcon style={{ ...goldenStarStyle, marginLeft: '4px' }} />
+                    <StarIcon style={{ ...goldenStarStyle, marginLeft: '4px' }} />
                     <StarIcon style={{ ...goldenStarStyle, marginLeft: '4px' }} />
                 </div>
             </div>
             <div className='category-rating'>
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                    <span>Criteria 4:</span>
-                    <span style={{ marginLeft: '8px' }}>{length ? stars[3] / length : 0}</span>
+                <div style={{ display: 'block', alignItems: 'center' }}>
+                    <div>Criteria 4: <span style={{ marginLeft: '8px' }}>{length ? stars[3] / length : 0}</span></div>
+                    <StarIcon style={{ ...goldenStarStyle, marginLeft: '4px' }} />
+                    <StarIcon style={{ ...goldenStarStyle, marginLeft: '4px' }} />
+                    <StarIcon style={{ ...goldenStarStyle, marginLeft: '4px' }} />
+                    <StarIcon style={{ ...goldenStarStyle, marginLeft: '4px' }} />
                     <StarIcon style={{ ...goldenStarStyle, marginLeft: '4px' }} />
                 </div>
             </div>
             <div className='category-rating'>
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                    <span>Criteria 5:</span>
-                    <span style={{ marginLeft: '8px' }}>{length ? stars[4] / length : 0}</span>
+                <div style={{ display: 'block', alignItems: 'center' }}>
+                    <div>Criteria 5: <span style={{ marginLeft: '8px' }}>{length ? stars[4] / length : 0}</span></div>
+                    <StarIcon style={{ ...goldenStarStyle, marginLeft: '4px' }} />
+                    <StarIcon style={{ ...goldenStarStyle, marginLeft: '4px' }} />
+                    <StarIcon style={{ ...goldenStarStyle, marginLeft: '4px' }} />
+                    <StarIcon style={{ ...goldenStarStyle, marginLeft: '4px' }} />
                     <StarIcon style={{ ...goldenStarStyle, marginLeft: '4px' }} />
                 </div>
             </div>
