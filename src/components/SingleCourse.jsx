@@ -10,12 +10,14 @@ import MaterialList from './MaterialList';
 import axios from 'axios';
 import RatingCard from './RatingCard';
 import RatingForm from './RatingForm'
+import backgroundImage from "../assets/bgimg.svg";
 const SingleCourse = () => {
     const { id } = useParams();
     const [materialFormView, setMaterialFormView] = useState(false);
     const [materialUploadFormView, setMaterialUploadFormView] = useState(false);
     const [materialLinkFormView, setMaterialLinkFormView] = useState(false);
     const [ratingFormView, setRatingFormView] = useState(false);
+    const [postFormView, setPostFormView] = useState(false)
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [stars, setStars] = useState([]);
@@ -48,17 +50,17 @@ const SingleCourse = () => {
         fetchData(id)
     }, [id])
     return (
-        <div>
-            <div className='container-one'>
-                <div><img src={image} alt={name} className="course-image" /></div>
-                <div className="course-details">
+        <div className='container-zero'>
+            {/*<div className="background-container" style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', minHeight: '100vh', opacity: '0.8' }} />*/}
+            <div className='container-one-top'>
+                <div className='left-top'>
                     <h2 className="course-name">{name}</h2>
                     <p>Course Code: {code}</p>
                     <p>Department: {department}</p>
                     <p>Instructor: {instructor}</p>
                     <p>Offered in semester: {OfferedInSemester}</p>
                 </div>
-                <div>
+                <div className='right-top'>
                     {loading ? <p>Loading...</p> : <RatingCard stars={stars} length={length} />}
                     {
                         ratingFormView ?
@@ -72,8 +74,10 @@ const SingleCourse = () => {
                 </div>
             </div>
 
-            <div className='container-one'>
-                <div>
+            <div className='container-one-bot'>
+                <div className='left-bot'>
+                    <h3>Material</h3>
+                    <MaterialList id={id} />
                     {materialFormView ? <>
                         <button onClick={() => setMaterialFormView(!materialFormView)}>Close</button>
                         {
@@ -96,14 +100,21 @@ const SingleCourse = () => {
                     </> :
                         <button onClick={() => setMaterialFormView(!materialFormView)}>Upload Material</button>
                     }
-                    <MaterialList id={id} />
                 </div>
 
-                <div>
-                    <h3>Add A New Post</h3>
-                    <PostForm course_id={id} />
+                <div className='right-bot'>
                     <h3>All Posts</h3>
                     <PostList id={id} />
+                    {
+                        postFormView ?
+                            <>
+                                <h3>Add Post</h3>
+                                <button onClick={() => setPostFormView(!postFormView)}>Close</button>
+                                <PostForm course_id={id} />
+                            </> :
+                            <button onClick={() => setPostFormView(!postFormView)}>Add Post</button>
+
+                    }
                 </div>
             </div>
         </div >

@@ -7,31 +7,41 @@ const RatingCard = ({ stars, length }) => {
     console.log(stars);
     console.log(length);
     return (
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-                <span>Criteria 1:</span>
-                <span style={{ marginLeft: '8px' }}>{length ? stars[0] / length : 0}</span>
-                <StarIcon style={{ ...goldenStarStyle, marginLeft: '4px' }} />
+        <div>
+            <div className='category-rating'>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <span>Criteria 1:</span>
+                    <span style={{ marginLeft: '8px' }}>{length ? stars[0] / length : 0}</span>
+                    <StarIcon style={{ ...goldenStarStyle, marginLeft: '4px' }} />
+                </div>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-                <span>Criteria 2:</span>
-                <span style={{ marginLeft: '8px' }}>{length ? stars[1] / length : 0}</span>
-                <StarIcon style={{ ...goldenStarStyle, marginLeft: '4px' }} />
+            <div className='category-rating'>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <span>Criteria 2:</span>
+                    <span style={{ marginLeft: '8px' }}>{length ? stars[1] / length : 0}</span>
+                    <StarIcon style={{ ...goldenStarStyle, marginLeft: '4px' }} />
+                </div>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-                <span>Criteria 3:</span>
-                <span style={{ marginLeft: '8px' }}>{length ? stars[2] / length : 0}</span>
-                <StarIcon style={{ ...goldenStarStyle, marginLeft: '4px' }} />
+            <div className='category-rating'>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <span>Criteria 3:</span>
+                    <span style={{ marginLeft: '8px' }}>{length ? stars[2] / length : 0}</span>
+                    <StarIcon style={{ ...goldenStarStyle, marginLeft: '4px' }} />
+                </div>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-                <span>Criteria 4:</span>
-                <span style={{ marginLeft: '8px' }}>{length ? stars[3] / length : 0}</span>
-                <StarIcon style={{ ...goldenStarStyle, marginLeft: '4px' }} />
+            <div className='category-rating'>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <span>Criteria 4:</span>
+                    <span style={{ marginLeft: '8px' }}>{length ? stars[3] / length : 0}</span>
+                    <StarIcon style={{ ...goldenStarStyle, marginLeft: '4px' }} />
+                </div>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-                <span>Criteria 5:</span>
-                <span style={{ marginLeft: '8px' }}>{length ? stars[4] / length : 0}</span>
-                <StarIcon style={{ ...goldenStarStyle, marginLeft: '4px' }} />
+            <div className='category-rating'>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <span>Criteria 5:</span>
+                    <span style={{ marginLeft: '8px' }}>{length ? stars[4] / length : 0}</span>
+                    <StarIcon style={{ ...goldenStarStyle, marginLeft: '4px' }} />
+                </div>
             </div>
         </div>
     );
