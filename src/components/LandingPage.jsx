@@ -6,6 +6,10 @@ const LandingPage = () => {
     return (
         <div className="landing-page">
             <header className="header">
+                <div className="top-links">
+                    <a href="/login" className="top-link">Login</a>
+                    <a href="/register" className="top-link">Register</a>
+                </div>
                 <h1>College Connect</h1>
                 <p>Welcome to College Connect, dedicated to the students of IIT (ISM) Dhanbad. Our platform is designed
                     to help you discover and understand the wealth of courses offered at your esteemed institution.</p>
