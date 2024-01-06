@@ -5,7 +5,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: url("https://img.freepik.com/premium-photo/abstract-blur-library-blurred-book-shelves-hall-generative-ai_791316-6098.jpg");
+    background-image: url("https://github.com/Tennyson100/college-connect-frontend/blob/main/%E2%80%94Pngtree%E2%80%94final%20battle%20college%20graduation%20graduation_1097352.jpg?raw=true");
     background-size: cover;
     background-position: center;
     background-color: #f0f0f0;
@@ -31,6 +31,15 @@
     /* Add a subtle text shadow */
     margin-bottom: 20px;
     /* Add some bottom margin for spacing */
+}
+
+.new-user {
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.register-link {
+    margin-left: 5px;
 }
 
 /* Add other styles as needed */

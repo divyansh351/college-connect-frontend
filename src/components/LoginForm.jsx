@@ -118,7 +118,13 @@ export default function LoginForm() {
                     >
                         Login
                     </Button>
+                    <div className="new-user">
+                        <p>Don't have an account?
+                            <a href="/register" className="register-link">Register</a>
+                        </p>
+                    </div>
                 </div>
+
             </Box>
             {success ? <div sx={{ color: '#4CAF50', marginTop: '20px' }}>Login Successful</div> : <></>}
             {error ? <div sx={{ color: '#ff0000', marginTop: '20px' }}>{errorMessage}</div> : <></>}
