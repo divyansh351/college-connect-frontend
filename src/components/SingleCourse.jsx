@@ -29,9 +29,6 @@ const SingleCourse = () => {
         code: '',
         description: ''
     });
-    const image = 'https://thumbor.forbes.com/thumbor/fit-in/900x510/https://www.forbes.com/advisor/wp-content/uploads/2022/06/software_engineer.jpeg.jpg'
-    const department = 'Computer Science'
-    const OfferedInSemester = 'Winter'
     const { name, instructor, code, description } = courseInfo;
     useEffect(() => {
         const fetchData = async (id) => {
@@ -66,15 +63,12 @@ const SingleCourse = () => {
                     {loading ? <p>Loading...</p> : <RatingCard stars={stars} length={length} />}
                 </div>
                 <div className='right-top'>
-                    {
-                        ratingFormView ?
-                            <>
-                                <button onClick={() => setRatingFormView(!ratingFormView)}>Close</button>
-                                <RatingForm course_id={id} />
-                            </> :
-                            <button onClick={() => setRatingFormView(!ratingFormView)}>Rate Course</button>
-
-                    }
+                    <button onClick={() => setRatingFormView(!ratingFormView)}>
+                        {ratingFormView ? 'Close' : 'Rate Course'}
+                    </button>
+                    <div className={`slide-down ${ratingFormView ? 'open' : ''}`}>
+                        <RatingForm course_id={id} />
+                    </div>
                 </div>
             </div>
 
@@ -111,16 +105,12 @@ const SingleCourse = () => {
                 <div className='right-bot'>
                     <h3>All Posts</h3>
                     <PostList id={id} />
-                    {
-                        postFormView ?
-                            <>
-                                <h3>Add Post</h3>
-                                <button onClick={() => setPostFormView(!postFormView)}>Close</button>
-                                <PostForm course_id={id} />
-                            </> :
-                            <button onClick={() => setPostFormView(!postFormView)}>Add Post</button>
-
-                    }
+                    <button onClick={() => setPostFormView(!postFormView)}>
+                        {postFormView ? "Close" : "Add Post"}
+                    </button>
+                    <div className={`slide-down ${postFormView ? 'open' : ''}`}>
+                        <PostForm course_id={id} />
+                    </div>
                 </div>
             </div>
         </div >

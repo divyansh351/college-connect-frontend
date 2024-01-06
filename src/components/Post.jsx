@@ -56,8 +56,12 @@ const Post = ({ _id, title, content, date, uploader }) => {
             <p className="content">{content}</p>
             <p className="info">By: {uploaderName}</p>
             <p className="info">On: {dt}</p>
-            {viewCommentForm ? <><button onClick={handleViewCommentForm}>Close Form</button><CommentForm post_id={_id} /></> : <><button onClick={handleViewCommentForm}>Add A Comment</button></>}
-            <br />
+            <button onClick={() => setViewCommentForm(!viewCommentForm)}>
+                {viewCommentForm ? 'Close' : 'Add a Comment'}
+            </button>
+            <div className={`slide-down${viewCommentForm ? ' open' : ''}`}>
+                <CommentForm post_id={_id} />
+            </div>
             {
                 viewComment ? <>
                     <button onClick={handleCollapse}>Collapse</button>
