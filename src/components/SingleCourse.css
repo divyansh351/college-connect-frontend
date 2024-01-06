@@ -75,7 +75,7 @@ button {
     font-weight: normal;
     font-family: "Roboto";
     padding: 6px 10px 6px 10px;
-    margin: 5px 5px 5px 5px;
+    margin: 2.5px 0 2.5px 0;
 }
 
 button:hover {
@@ -97,6 +97,16 @@ button:hover {
 
 .det {
     font-size: 120%;
+}
+
+.slide-down {
+    max-height: 0%;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.slide-down.open {
+    max-height: 100%;
 }
 
 @media (max-width: 700px) {
