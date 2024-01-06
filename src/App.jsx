@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
 import Profile from "./components/Profile"
 import { Routes, Route } from 'react-router-dom'
-import Landing from "./components/Landing"
+import LandingPage from "./components/LandingPage"
 import SingleCourse from "./components/SingleCourse"
 import CourseList from "./components/CourseList"
 function App() {
@@ -15,7 +15,7 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<Landing />}
+          element={<LandingPage />}
         />
         <Route
           path="/login"
