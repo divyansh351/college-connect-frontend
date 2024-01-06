@@ -2,6 +2,13 @@
 import React, { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import IconButton from '@mui/material/IconButton';
+import InputLabel from '@mui/material/InputLabel';
+import InputAdornment from '@mui/material/InputAdornment';
+import FormControl from '@mui/material/FormControl';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import Button from '@mui/material/Button';
 import AuthVerify from '../helper/JWTVerify';
 import { useNavigate } from 'react-router-dom';
@@ -9,6 +16,7 @@ import axios from 'axios';
 import './RegisterForm.css'; // Import the styles
 
 export default function RegisterForm() {
+    const [showPassword, setShowPassword] = useState(false);
     const [formData, setformData] = useState({
         name: "",
         email: "",
@@ -30,7 +38,7 @@ export default function RegisterForm() {
             [fieldName]: value,
         }));
     };
-
+    const handleClickShowPassword = () => setShowPassword((show) => !show);
     const handleSubmit = async (evt) => {
         evt.preventDefault();
 
@@ -116,16 +124,29 @@ export default function RegisterForm() {
                     fullWidth
                     style={{ marginTop: '20px' }}
                 />
-                <TextField
-                    required
-                    label="Password"
-                    type="password"
-                    name="password"
-                    value={formData.password}
-                    onChange={handleChange}
-                    fullWidth
-                    style={{ marginTop: '20px' }}
-                />
+                <FormControl sx={{ m: 1, width: '100%' }} variant="outlined">
+                    <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+                    <OutlinedInput
+                        id="outlined-adornment-password"
+                        type={showPassword ? 'text' : 'password'}
+                        endAdornment={
+                            <InputAdornment position="end">
+                                <IconButton
+                                    aria-label="toggle password visibility"
+                                    onClick={handleClickShowPassword}
+                                    edge="end"
+                                >
+                                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                                </IconButton>
+                            </InputAdornment>
+                        }
+                        label="Password"
+                        value={formData.password}
+                        name="password"
+                        fullWidth
+                        onChange={handleChange}
+                    />
+                </FormControl>
 
                 <Button onClick={handleSubmit} variant="contained" fullWidth style={{ marginTop: '20px' }}>
                     Register
@@ -133,9 +154,9 @@ export default function RegisterForm() {
                 {success && <div>Registration Successful</div>}
                 {error && <div>{errorMessage}</div>}
                 {loading && <div>Registering</div>}
-                <div className="new-user">
+                <div className="old-user" style={{ marginTop: "1em" }}>
                     <p>Already have an account?
-                        <a href="/login" className="register-link">Login</a>
+                        <a href="/login" className="login-link" >Login</a>
                     </p>
                 </div>
             </Box>

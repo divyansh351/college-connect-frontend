@@ -1,45 +1,54 @@
-/* LoginFormStyles.css */
-
+/* LoginForm.css */
 .login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     background-image: url("https://github.com/Tennyson100/college-connect-frontend/blob/main/%E2%80%94Pngtree%E2%80%94final%20battle%20college%20graduation%20graduation_1097352.jpg?raw=true");
     background-size: cover;
-    background-position: center;
-    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 .form-container {
-    background-color: rgba(255, 255, 255, 0.8);
+    width: 500px;
+    margin-right: 5%;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.form-container h1 {
-    /* font-family: 'Raleway', sans-serif; */
-    color: #3498db;
-    /* Blue color for the heading */
-    font-size: 2.5rem;
-    /* Adjust the font size */
-    font-weight: bold;
-    /* Make it bold */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    /* Add a subtle text shadow */
-    margin-bottom: 20px;
-    /* Add some bottom margin for spacing */
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px 8px 8px 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .new-user {
     margin-top: 20px;
-    font-size: 16px;
 }
 
 .register-link {
-    margin-left: 5px;
+    margin-left: 2px;
 }
 
-/* Add other styles as needed */
+.welcome-message {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+    /* background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+}
+
+/* Additional styling for success, error, and loading messages */
+.success-message {
+    color: #4CAF50;
+    margin-top: 20px;
+}
+
+.error-message {
+    color: #ff0000;
+    margin-top: 20px;
+}
+
+.loading-message {
+    margin-top: 20px;
+}

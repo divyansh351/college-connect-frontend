@@ -1,3 +1,4 @@
+// LoginForm.js
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
@@ -13,6 +14,7 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import axios from 'axios';
 import AuthVerify from '../helper/JWTVerify';
 import './LoginForm.css'; // Import the stylesheet
+
 export default function LoginForm() {
     const [showPassword, setShowPassword] = useState(false);
     const [formData, setformData] = useState({
@@ -77,58 +79,65 @@ export default function LoginForm() {
     }, []);
 
     return (
-        <>
-            <Box className="login-container">
-                <div className="form-container">
-                    <h1>College-Connect</h1>
-                    <TextField
-                        label="Username"
-                        id="outlined-start-adornment"
-                        sx={{ m: 1, width: '100%' }}
-                        value={formData.username}
-                        name="username"
+        <Box className="login-container">
+            <div className="form-container">
+                <h1>College-Connect</h1>
+                <TextField
+                    label="Username"
+                    id="outlined-start-adornment"
+                    sx={{ m: 1, width: '100%' }}
+                    value={formData.username}
+                    name="username"
+                    onChange={handleChange}
+                />
+                <FormControl sx={{ m: 1, width: '100%' }} variant="outlined">
+                    <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+                    <OutlinedInput
+                        id="outlined-adornment-password"
+                        type={showPassword ? 'text' : 'password'}
+                        endAdornment={
+                            <InputAdornment position="end">
+                                <IconButton
+                                    aria-label="toggle password visibility"
+                                    onClick={handleClickShowPassword}
+                                    edge="end"
+                                >
+                                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                                </IconButton>
+                            </InputAdornment>
+                        }
+                        label="Password"
+                        value={formData.password}
+                        name="password"
                         onChange={handleChange}
                     />
-                    <FormControl sx={{ m: 1, width: '100%' }} variant="outlined">
-                        <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
-                        <OutlinedInput
-                            id="outlined-adornment-password"
-                            type={showPassword ? 'text' : 'password'}
-                            endAdornment={
-                                <InputAdornment position="end">
-                                    <IconButton
-                                        aria-label="toggle password visibility"
-                                        onClick={handleClickShowPassword}
-                                        edge="end"
-                                    >
-                                        {showPassword ? <VisibilityOff /> : <Visibility />}
-                                    </IconButton>
-                                </InputAdornment>
-                            }
-                            label="Password"
-                            value={formData.password}
-                            name="password"
-                            onChange={handleChange}
-                        />
-                    </FormControl>
-                    <Button
-                        onClick={handleSubmit}
-                        variant="contained"
-                        sx={{ marginTop: '20px', backgroundColor: '#3498db', color: '#fff' }}
-                    >
-                        Login
-                    </Button>
-                    <div className="new-user">
-                        <p>Don't have an account?
-                            <a href="/register" className="register-link">Register</a>
-                        </p>
-                    </div>
+                </FormControl>
+                <Button
+                    onClick={handleSubmit}
+                    variant="contained"
+                    sx={{ marginTop: '20px', backgroundColor: '#3498db', color: '#fff' }}
+                >
+                    Login
+                </Button>
+                <div className="new-user">
+                    <p>Don't have an account?
+                        <a href="/register" className="register-link">Register</a>
+                    </p>
                 </div>
-
-            </Box>
+            </div>
+            <div className="welcome-message">
+                <h1 style={{
+                    fontFamily: 'Raleway, sans-serif',
+                    color: 'gold',
+                    fontSize: '2.5rem',
+                    fontWeight: 'bold',
+                    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)',
+                }}>Welcome to College-Connect!</h1>
+                <p style={{ color: 'white' }}>Discover and connect with the courses offered at your institution.</p>
+            </div>
             {success ? <div sx={{ color: '#4CAF50', marginTop: '20px' }}>Login Successful</div> : <></>}
             {error ? <div sx={{ color: '#ff0000', marginTop: '20px' }}>{errorMessage}</div> : <></>}
             {loading ? <div sx={{ marginTop: '20px' }}>Please Wait...</div> : <></>}
-        </>
+        </Box>
     );
 }
