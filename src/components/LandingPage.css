@@ -1,11 +1,15 @@
 /* src/components/LandingPage.css */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
 .landing-page {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
     background-image: url('https://github.com/Tennyson100/college-connect-frontend/blob/main/%E2%80%94Pngtree%E2%80%94final%20battle%20college%20graduation%20graduation_1097352.jpg?raw=true');
-    /* Replace with your background image URL */
     background-size: cover;
     color: #fff;
 }
@@ -13,14 +17,33 @@
 .header {
     max-width: 600px;
     padding: 20px;
-    /* background: rgba(0, 0, 0, 0.5); */
     border-radius: 10px;
     text-align: center;
-    /* Center the text within the header */
+}
+
+.top-links {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.top-link {
+    margin-right: 20px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.top-link:hover {
+    text-decoration: underline;
 }
 
 h1 {
     margin-bottom: 10px;
+    font-size: 3em;
+    color: #FFD700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 p {
@@ -30,17 +53,16 @@ p {
 
 .cta-button {
     display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    text-decoration: none;
-    background-color: #3498db;
+    padding: 8px 15px;
     color: #fff;
-    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: #45a049;
+    font-size: 16px;
     transition: background-color 0.3s;
-    margin-top: 10px;
-    /* Adjusted margin to separate the button from the text */
+    margin-top: 20px;
 }
 
 .cta-button:hover {
-    background-color: #2980b9;
+    text-decoration: underline;
 }
