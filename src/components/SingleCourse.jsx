@@ -74,41 +74,45 @@ const SingleCourse = () => {
 
             <div className='container-one-bot'>
                 <div className='left-bot'>
-                    <h3>Material</h3>
+                    <h3 className='bot-heading'>Material</h3>
                     <MaterialList id={id} />
                     {materialFormView ? <>
-                        <button onClick={() => setMaterialFormView(!materialFormView)}>Close</button>
+                        <button style={{ "margin-left": '16px' }} onClick={() => setMaterialFormView(!materialFormView)}>Close</button>
                         <br />
                         {
                             materialUploadFormView ?
                                 <>
-                                    <button onClick={() => setMaterialUploadFormView(!materialUploadFormView)}>Close Pdf Form</button>
-                                    <MaterialUploadForm course_id={id} />
+                                    <button style={{ "margin-left": '16px' }} onClick={() => setMaterialUploadFormView(!materialUploadFormView)}>Close Pdf Form</button>
+                                    <div style={{ "margin-left": '16px' }}>
+                                        <MaterialUploadForm course_id={id} />
+                                    </div>
                                 </> :
-                                <button onClick={() => setMaterialUploadFormView(!materialUploadFormView)}>Upload Pdf</button>
+                                <button style={{ "margin-left": '16px' }} onClick={() => setMaterialUploadFormView(!materialUploadFormView)}>Upload Pdf</button>
                         }
                         <br />
                         {
                             materialLinkFormView ?
                                 <>
-                                    <button onClick={() => setMaterialLinkFormView(!materialLinkFormView)}>Close Link Form</button>
-                                    <MaterialLinkForm course_id={id} />
+                                    <button style={{ "margin-left": '16px' }} onClick={() => setMaterialLinkFormView(!materialLinkFormView)}>Close Link Form</button>
+                                    <div style={{ "margin-left": '16px' }}>
+                                        <MaterialLinkForm course_id={id} />
+                                    </div>
                                 </> :
-                                <button onClick={() => setMaterialLinkFormView(!materialLinkFormView)}>Upload Link</button>
+                                <button style={{ "margin-left": '16px' }} onClick={() => setMaterialLinkFormView(!materialLinkFormView)}>Upload Link</button>
                         }
 
                     </> :
-                        <button onClick={() => setMaterialFormView(!materialFormView)}>Upload Material</button>
+                        <button style={{ "margin-left": '16px' }} onClick={() => setMaterialFormView(!materialFormView)}>Upload Material</button>
                     }
                 </div>
                 <br />
                 <div className='right-bot'>
-                    <h3>All Posts</h3>
+                    <h3 className='bot-heading'>All Posts</h3>
                     <PostList id={id} />
-                    <button onClick={() => setPostFormView(!postFormView)}>
+                    <button style={{ "margin-left": '16px' }} onClick={() => setPostFormView(!postFormView)}>
                         {postFormView ? "Close" : "Add Post"}
                     </button>
-                    <div className={`slide-down ${postFormView ? 'open' : ''}`}>
+                    <div style={{ "margin-left": '16px' }} className={`slide-down ${postFormView ? 'open' : ''}`}>
                         <PostForm course_id={id} />
                     </div>
                 </div>
