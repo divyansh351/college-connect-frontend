@@ -31,11 +31,11 @@ function App() {
         />
         <Route
           path="/course"
-          element={<CourseList />}
+          element={<><Navbar /><CourseList /></>}
         />
         <Route
           path="/course/:id"
-          element={<SingleCourse />}
+          element={<><Navbar /><SingleCourse /></>}
         />
       </Routes>
     </>

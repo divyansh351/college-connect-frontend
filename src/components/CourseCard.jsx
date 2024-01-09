@@ -9,7 +9,6 @@ const CourseCard = ({ id, linkDisable = false }) => {
         instructor: '',
         code: '',
     });
-    const image = 'https://thumbor.forbes.com/thumbor/fit-in/900x510/https://www.forbes.com/advisor/wp-content/uploads/2022/06/software_engineer.jpeg.jpg'
     const department = 'Computer Science'
     const OfferedInSemester = 'Winter'
     const [error, setError] = useState(null);
@@ -51,9 +50,7 @@ const CourseCard = ({ id, linkDisable = false }) => {
             <div className="course-details">
                 <h2 className="course-name">{name}</h2>
                 <p>Course Code: {code}</p>
-                <p>Department: {department}</p>
                 <p>Instructor: {instructor}</p>
-                <p>Offered in semester: {OfferedInSemester}</p>
             </div>
         </div>
     );

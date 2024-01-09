@@ -52,7 +52,7 @@ const SingleCourse = () => {
             {/*<div className="background-container" style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', minHeight: '100vh', opacity: '0.8' }} />*/}
             <div className='container-one-top'>
                 <div className='left-top'>
-                    <h1 className="main-heading">{name}</h1>
+                    <h1 className="main-heading"><strong>{name}</strong></h1>
                     <h3 className='sub-heading'>{code}</h3>
                     <p className='det'>Instructor:<strong> {instructor}</strong></p>
                     <p className='det'>Description: <strong> {description}</strong></p>
