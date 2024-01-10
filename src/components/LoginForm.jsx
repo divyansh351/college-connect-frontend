@@ -81,7 +81,7 @@ export default function LoginForm() {
     return (
         <Box className="login-container">
             <div className="form-container">
-                <h1>College-Connect</h1>
+                <h1>LogIn</h1>
                 <TextField
                     label="Username"
                     id="outlined-start-adornment"
@@ -115,7 +115,6 @@ export default function LoginForm() {
                 <Button
                     onClick={handleSubmit}
                     variant="contained"
-                    sx={{ marginTop: '20px', backgroundColor: '#3498db', color: '#fff' }}
                 >
                     Login
                 </Button>

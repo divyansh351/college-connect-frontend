@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import CourseCard from "./CourseCard";
-import backgroundImage from "../assets/bgimg.svg"; // Adjust the path accordingly
+import React from "react";
+import backgroundImage from "../assets/bgimj2.jpg"; // Adjust the path accordingly
 
 export default function CourseList() {
     const [courses, setcourses] = useState([]);
@@ -20,14 +21,15 @@ export default function CourseList() {
     }, []);
 
     return (
-        <div className="course-list-container">
-            <div className="background-container" style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', minHeight: '100vh' }} />
-            <div className="content-container">
-                {courses.map((course, index) => (
-                    <CourseCard key={index} id={course._id} linkDisable={false} />
-                ))}
-            </div>
-            <style jsx="true">{`
+        <React.Fragment>
+            <div className="background-container" style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: '600px', minHeight: '100vh', backgroundAttachment: 'fixed' }} />
+            <div className="course-list-container">
+                <div className="content-container">
+                    {courses.map((course, index) => (
+                        <CourseCard key={index} id={course._id} linkDisable={false} />
+                    ))}
+                </div>
+                <style jsx="true">{`
                 .course-list-container {
                     position: relative;
                 }
@@ -45,10 +47,10 @@ export default function CourseList() {
                     display: flex;
                     flex-wrap: wrap;
                     justify-content: space-around;
-                    margin: 20px; /* Adjust margin as needed */
                     z-index: 1; /* Ensure content is above the background */
                 }
             `}</style>
-        </div>
+            </div>
+        </React.Fragment>
     );
 }

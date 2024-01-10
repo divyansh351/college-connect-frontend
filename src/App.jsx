@@ -8,6 +8,7 @@ import { Routes, Route } from 'react-router-dom'
 import LandingPage from "./components/LandingPage"
 import SingleCourse from "./components/SingleCourse"
 import CourseList from "./components/CourseList"
+import React from "react"
 function App() {
   return (
     <>
@@ -27,15 +28,30 @@ function App() {
         />
         <Route
           path="/profile"
-          element={<Profile />}
+          element={
+            <React.Fragment>
+              <Navbar />
+              <Profile />
+            </React.Fragment>
+          }
         />
         <Route
           path="/course"
-          element={<><Navbar /><CourseList /></>}
+          element={
+            <React.Fragment>
+              <Navbar />
+              <CourseList />
+            </React.Fragment>
+          }
         />
         <Route
           path="/course/:id"
-          element={<><Navbar /><SingleCourse /></>}
+          element={
+            <React.Fragment>
+              <Navbar />
+              <SingleCourse />
+            </React.Fragment>
+          }
         />
       </Routes>
     </>

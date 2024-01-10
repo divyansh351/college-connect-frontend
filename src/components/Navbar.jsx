@@ -21,12 +21,12 @@ export default function App() {
     const navigate = useNavigate();
     const handleLogout = () => {
         localStorage.removeItem("token")
-        navigate("/login");
+        window.location.reload();
     }
 
     return (
         <>
-            <MDBNavbar sticky expand='lg' light bgColor='light'>
+            <MDBNavbar sticky expand='lg' dark bgColor='dark' style={{ "--mdb-bg-opacity": "0.9", 'backdropFilter': 'blur(2px)' }} >
                 <MDBContainer fluid>
                     <MDBNavbarToggler
                         type='button'
@@ -53,7 +53,7 @@ export default function App() {
                             </MDBNavbarItem>
                             <MDBNavbarItem>
                                 {localStorage.token ?
-                                    <MDBNavbarLink href='#' tabIndex={-1} aria-disabled='true'>
+                                    <MDBNavbarLink href='/profile' tabIndex={-1} aria-disabled='true'>
                                         Profile
                                     </MDBNavbarLink> : <></>
                                 }
@@ -77,7 +77,7 @@ export default function App() {
                         }
                     </MDBCollapse>
                 </MDBContainer>
-            </MDBNavbar>
+            </MDBNavbar >
         </>
     );
 }

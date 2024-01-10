@@ -81,12 +81,14 @@ export default function RegisterForm() {
 
     return (
         <div className="register-form-container">
+
             <Box
                 className="form-box"
                 component="form"
                 noValidate
                 autoComplete="off"
             >
+                <h1>Register</h1>
                 <TextField
                     required
                     label="Name"
@@ -148,7 +150,7 @@ export default function RegisterForm() {
                     />
                 </FormControl>
 
-                <Button onClick={handleSubmit} variant="contained" fullWidth style={{ marginTop: '20px' }}>
+                <Button onClick={handleSubmit} variant="contained" style={{ marginTop: '20px' }}>
                     Register
                 </Button>
                 {success && <div>Registration Successful</div>}
