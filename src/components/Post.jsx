@@ -54,7 +54,7 @@ const Post = ({ _id, title, content, date, uploader }) => {
         <div className="post">
             <h3 className='post-title'>{title}</h3>
             <p className="content">{content}</p>
-            <p className="info">By: {uploaderName}</p>
+            {/*<p className="info">By: {uploaderName}</p>*/}
             <p className="info">On: {dt}</p>
             <button onClick={() => setViewCommentForm(!viewCommentForm)}>
                 {viewCommentForm ? 'Close' : 'Add a Comment'}

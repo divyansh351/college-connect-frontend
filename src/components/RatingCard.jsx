@@ -4,8 +4,6 @@ import StarIcon from '@mui/icons-material/Star';
 
 const RatingCard = ({ stars, length }) => {
     const goldenStarStyle = { color: '#faaf00' };
-    console.log(stars);
-    console.log(length);
     return (
         <div>
             <div className='category-rating'>

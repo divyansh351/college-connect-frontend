@@ -26,7 +26,6 @@ const PostList = ({ id }) => {
         fetchData(id);
     }, []);
 
-    console.log("Posts State:", posts);
 
     return (
         <div className="posts-list">

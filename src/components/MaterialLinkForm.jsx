@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 
 const MaterialLinkForm = ({ course_id }) => {
     const [formData, setformData] = useState({
@@ -30,8 +32,6 @@ const MaterialLinkForm = ({ course_id }) => {
 
 
         try {
-            console.log(formData);
-            console.log(token);
             const response = await axios.post(
                 `https://college-connect-backend-0x0i.onrender.com/course/add_material_link`,
                 formData,
@@ -58,33 +58,40 @@ const MaterialLinkForm = ({ course_id }) => {
     };
     return (
         <div>
-            <form>
-                <div>
-                    <label htmlFor="title">Title:</label>
-                    <input
-                        type="text"
-                        id="title"
-                        name="title"
-                        value={formData.title}
-                        onChange={handleChange}
-                    />
-                </div>
-                <div>
-                    <label htmlFor="link">Link:</label>
-                    <textarea
-                        id="link"
-                        value={formData.link}
-                        name="link"
-                        onChange={handleChange}
-                    />
-                </div>
-                <button type="button" onClick={handleSubmit}>
-                    Post
+            <Box
+                className="form-box"
+                component="form"
+                noValidate
+                autoComplete="off"
+                style={{ margin: '10px 0 10px 0', alignItems: 'flex-start', width: '90%', height: '20%' }}
+            >
+                <TextField
+                    required
+                    label="Title"
+                    name="title"
+                    value={formData.title}
+                    onChange={handleChange}
+                    fullWidth
+                    size='small'
+                    style={{ marginTop: '' }}
+                />
+                <TextField
+                    required
+                    label="Link"
+                    name="link"
+                    value={formData.link}
+                    onChange={handleChange}
+                    fullWidth
+                    size='small'
+                    style={{ marginTop: '10px' }}
+                />
+                <button style={{ marginTop: '10px', padding: '4px 8px 4px 8px', fontSize: '95%' }} type="button" onClick={handleSubmit}>
+                    Add
                 </button>
-            </form>
-            {success ? <div>Registration Successful</div> : <></>}
-            {error ? <div>{errorMessage}</div> : <></>}
-            {loading ? <div>Registering</div> : <></>}
+                {success ? <div>Successfully Uploaded</div> : <></>}
+                {error ? <div>{errorMessage}</div> : <></>}
+                {loading ? <div>Uploading</div> : <></>}
+            </Box>
         </div>
     );
 };

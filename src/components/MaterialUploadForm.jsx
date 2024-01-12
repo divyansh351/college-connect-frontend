@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 
 const MaterialUploadForm = ({ course_id }) => {
     const [formData, setformData] = useState({
@@ -31,13 +33,11 @@ const MaterialUploadForm = ({ course_id }) => {
         for (let prop in formData) {
             ReactFormData.append(prop, formData[prop]);
         }
-        console.log(material);
         for (const mat of material) { // images is an array of File Object
             ReactFormData.append('material', mat, mat.name); // multiple upload
         }
 
         try {
-            console.log(token);
             const response = await axios.post(
                 `https://college-connect-backend-0x0i.onrender.com/course/add_material_direct`,
                 ReactFormData,
@@ -72,33 +72,39 @@ const MaterialUploadForm = ({ course_id }) => {
 
     return (
         <div>
-            <form>
+            <Box
+                className="form-box"
+                component="form"
+                noValidate
+                autoComplete="off"
+                style={{ margin: '10px 0 10px 0', alignItems: 'flex-start', width: '90%', height: '20%' }}
+            >
+                <TextField
+                    required
+                    label="Title"
+                    name="title"
+                    value={formData.title}
+                    onChange={handleChange}
+                    fullWidth
+                    size='small'
+                    style={{ marginBottom: '10px' }}
+                />
                 <div>
-                    <label htmlFor="title">Title:</label>
-                    <input
-                        type="text"
-                        id="title"
-                        name="title"
-                        value={formData.title}
-                        onChange={handleChange}
-                    />
-                </div>
-                <div>
-                    <label htmlFor="material">Material (PDF ONLY):</label>
                     <input
                         type="file"
+                        className="form-control"
                         id="material"
                         name="material"
                         onChange={handleMaterialChange}
                     />
                 </div>
-                <button type="button" onClick={handleSubmit}>
-                    Post
+                <button style={{ marginTop: '10px', padding: '4px 8px 4px 8px', fontSize: '95%' }} type="button" onClick={handleSubmit}>
+                    Add
                 </button>
-            </form>
-            {success ? <div>Registration Successful</div> : <></>}
-            {error ? <div>{errorMessage}</div> : <></>}
-            {loading ? <div>Registering</div> : <></>}
+                {success ? <div>Material Successfully Uploaded</div> : <></>}
+                {error ? <div>{errorMessage}</div> : <></>}
+                {loading ? <div>Uploading Material</div> : <></>}
+            </Box>
         </div>
     );
 };

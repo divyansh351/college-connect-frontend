@@ -8,9 +8,8 @@ const CourseCard = ({ id, linkDisable = false }) => {
         name: '',
         instructor: '',
         code: '',
+        description: ''
     });
-    const department = 'Computer Science'
-    const OfferedInSemester = 'Winter'
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
@@ -30,15 +29,15 @@ const CourseCard = ({ id, linkDisable = false }) => {
         fetchData(id);
     }, [id]);
 
-    if (loading) {
-        return <p>Loading...</p>; // You can customize this loading indicator
-    }
+    // if (loading) {
+    //     return <p>Loading...</p>; // You can customize this loading indicator
+    // }
 
     if (error) {
         return <p>Error: {error}</p>; // Display an error message
     }
 
-    const { name, instructor, code } = courseInfo;
+    const { name, instructor, code, description } = courseInfo;
 
     return (
         <div
@@ -49,8 +48,8 @@ const CourseCard = ({ id, linkDisable = false }) => {
             {/*<img src={image} alt={name} className="course-image" />*/}
             <div className="course-details">
                 <h2 className="course-name">{name}</h2>
-                <p>Course Code: {code}</p>
-                <p>Instructor: {instructor}</p>
+                <p className="dett">Course Code:<strong> {code}</strong></p>
+                <p className="dett">Details:<strong style={{ textTransform: 'uppercase' }}> {description}</strong></p>
             </div>
         </div>
     );

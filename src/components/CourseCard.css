@@ -1,9 +1,9 @@
 .course-card {
-    border-radius: 20px;
-    background: #edededd0;
+    border-radius: 8px;
+    background: #ededede4;
     overflow: hidden;
-    margin: 8px;
-    width: 300px;
+    margin: 4px;
+    width: 350px;
 }
 
 .course-image {
@@ -21,9 +21,20 @@ p {
     margin-bottom: 0.5em;
 }
 
+.dett {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
 h2 {
     margin-top: 0;
     margin-bottom: 0.5em;
     font-size: 180%;
     font-weight: 600;
+}
+
+@media (max-width: 700px) {
+    .course-card {
+        width: 92%;
+    }
 }

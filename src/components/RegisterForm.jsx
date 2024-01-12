@@ -87,6 +87,7 @@ export default function RegisterForm() {
                 component="form"
                 noValidate
                 autoComplete="off"
+                style={{ margin: "2.5%" }}
             >
                 <h1>Register</h1>
                 <TextField

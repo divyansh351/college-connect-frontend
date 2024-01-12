@@ -1,6 +1,6 @@
 /* LoginForm.css */
 .login-container {
-    background-image: url("https://github.com/Tennyson100/college-connect-frontend/blob/main/%E2%80%94Pngtree%E2%80%94final%20battle%20college%20graduation%20graduation_1097352.jpg?raw=true");
+    background-image: url("../../—Pngtree—final\ battle\ college\ graduation\ graduation_1097352.jpg");
     background-size: cover;
     display: flex;
     flex-direction: row-reverse;
@@ -10,7 +10,7 @@
 }
 
 .form-container {
-    width: 500px;
+    width: 35%;
     margin-right: 5%;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.8);
@@ -32,7 +32,7 @@
 .welcome-message {
     flex: 1;
     text-align: center;
-    padding: 20px;
+    /* padding: 20px; */
     /* background-color: rgba(255, 255, 255, 0.8);
     border-radius: 0 8px 8px 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
@@ -40,7 +40,7 @@
 
 /* Additional styling for success, error, and loading messages */
 .success-message {
-    color: #4CAF50;
+    color: #4caf50;
     margin-top: 20px;
 }
 
@@ -51,4 +51,23 @@
 
 .loading-message {
     margin-top: 20px;
+}
+
+@media (max-width: 700px) {
+    .login-container {
+        display: flex;
+        flex-direction: column-reverse;
+        align-self: flex-end;
+    }
+    .form-container {
+        width: 92%;
+        margin-left: 4%;
+    }
+    .hidden-ph {
+        display: none;
+    }
+    .welcome-message {
+        margin-top: 10%;
+        display: none;
+    }
 }

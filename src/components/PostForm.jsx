@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 import axios from 'axios';
 
 const PostForm = ({ course_id }) => {
@@ -30,8 +33,6 @@ const PostForm = ({ course_id }) => {
 
 
         try {
-            console.log(formData);
-            console.log(token);
             const response = await axios.post(
                 `https://college-connect-backend-0x0i.onrender.com/post/new`,
                 formData,
@@ -47,8 +48,8 @@ const PostForm = ({ course_id }) => {
                 window.location.reload();
             }
             else {
-                setError(true);
                 setErrorMessage(response.data.message)
+                setError(true);
             }
         } catch (err) {
             setLoading(false);
@@ -58,33 +59,40 @@ const PostForm = ({ course_id }) => {
     };
     return (
         <div>
-            <form>
-                <div>
-                    <label htmlFor="title">Title:</label>
-                    <input
-                        type="text"
-                        id="title"
-                        name="title"
-                        value={formData.title}
-                        onChange={handleChange}
-                    />
-                </div>
-                <div>
-                    <label htmlFor="content">Content:</label>
-                    <textarea
-                        id="content"
-                        value={formData.content}
-                        name="content"
-                        onChange={handleChange}
-                    />
-                </div>
-                <button type="button" onClick={handleSubmit}>
+            <Box
+                className="form-box"
+                component="form"
+                noValidate
+                autoComplete="off"
+                style={{ margin: '10px 0 10px 0', alignItems: 'flex-start', width: '90%', height: '20%' }}
+            >
+                <TextField
+                    required
+                    label="Title"
+                    name="title"
+                    value={formData.title}
+                    onChange={handleChange}
+                    fullWidth
+                    size='small'
+                    style={{ marginTop: '' }}
+                />
+                <TextField
+                    required
+                    label="Content"
+                    name="content"
+                    value={formData.content}
+                    onChange={handleChange}
+                    fullWidth
+                    size='small'
+                    style={{ marginTop: '10px' }}
+                />
+                <button style={{ marginTop: '10px', padding: '4px 8px 4px 8px', fontSize: '95%' }} type="button" onClick={handleSubmit}>
                     Post
                 </button>
-            </form>
-            {success ? <div>Registration Successful</div> : <></>}
-            {error ? <div>{errorMessage}</div> : <></>}
-            {loading ? <div>Registering</div> : <></>}
+                {success ? <div>Succesfully Posted</div> : <></>}
+                {error ? <div style={{ textTransform: 'capitalize' }}>Please Login</div> : <></>}
+                {loading ? <div>Posting</div> : <></>}
+            </Box>
         </div>
     );
 };

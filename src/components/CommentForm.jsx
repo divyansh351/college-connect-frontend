@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 
 const CommentForm = ({ post_id }) => {
     const [formData, setformData] = useState({
@@ -56,23 +58,31 @@ const CommentForm = ({ post_id }) => {
     };
     return (
         <>
-            <form>
-                <div>
-                    <label htmlFor="content">Content:</label>
-                    <textarea
-                        id="content"
-                        value={formData.content}
-                        name="content"
-                        onChange={handleChange}
-                    />
-                </div>
-                <button type="button" onClick={handleSubmit}>
+            <Box
+                className="form-box"
+                component="form"
+                noValidate
+                autoComplete="off"
+                style={{ margin: '10px 0 10px 0', alignItems: 'flex-start', width: '90%', height: '10%' }}
+            >
+                <TextField
+                    required
+                    label="Comment"
+                    name="content"
+                    value={formData.content}
+                    onChange={handleChange}
+                    fullWidth
+                    size='small'
+                    style={{ margin: '0 0 0 0' }}
+                />
+                <button style={{ marginTop: '10px', padding: '4px 8px 4px 8px', fontSize: '95%' }} type="button" onClick={handleSubmit}>
                     Comment
                 </button>
-            </form>
-            {success ? <div>Comment Posted</div> : <></>}
-            {error ? <div>{errorMessage}</div> : <></>}
-            {loading ? <div>Registering</div> : <></>}
+
+                {success ? <div>Comment Posted</div> : <></>}
+                {error ? <div>{errorMessage}</div> : <></>}
+                {loading ? <div>Posting</div> : <></>}
+            </Box>
         </>
     );
 };

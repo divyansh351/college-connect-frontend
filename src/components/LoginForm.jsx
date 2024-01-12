@@ -118,6 +118,9 @@ export default function LoginForm() {
                 >
                     Login
                 </Button>
+                {success ? <div sx={{ color: '#4CAF50', marginTop: '20px' }}>Login Successful</div> : <></>}
+                {error ? <div sx={{ color: '#ff0000', marginTop: '20px' }}>{errorMessage}</div> : <></>}
+                {loading ? <div sx={{ marginTop: '20px' }}>Please Wait...</div> : <></>}
                 <div className="new-user">
                     <p>Don't have an account?
                         <a href="/register" className="register-link">Register</a>
@@ -132,11 +135,8 @@ export default function LoginForm() {
                     fontWeight: 'bold',
                     textShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)',
                 }}>Welcome to College-Connect!</h1>
-                <p style={{ color: 'white' }}>Discover and connect with the courses offered at your institution.</p>
+                <p className="hidden-ph" style={{ color: 'white' }}>Discover and connect with the courses offered at your institution.</p>
             </div>
-            {success ? <div sx={{ color: '#4CAF50', marginTop: '20px' }}>Login Successful</div> : <></>}
-            {error ? <div sx={{ color: '#ff0000', marginTop: '20px' }}>{errorMessage}</div> : <></>}
-            {loading ? <div sx={{ marginTop: '20px' }}>Please Wait...</div> : <></>}
         </Box>
     );
 }

@@ -92,11 +92,13 @@ button:hover {
     font-size: 180%;
     color: black;
     font-weight: lighter;
+    margin-top: 1%;
     margin-bottom: 3%;
 }
 
 .det {
     font-size: 120%;
+    margin-bottom: 0;
 }
 
 .slide-down {
@@ -145,5 +147,9 @@ button:hover {
     }
     .right-bot {
         width: 100%;
+    }
+    .sub-heading {
+        margin-top: 3%;
+        margin-bottom: 5%;
     }
 }
