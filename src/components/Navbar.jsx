@@ -40,7 +40,7 @@ export default function App() {
                     >
                         <MDBIcon icon='bars' fas />
                     </MDBNavbarToggler>
-                    <MDBNavbarBrand href='/'><strong>College Connect</strong></MDBNavbarBrand>
+                    <MDBNavbarBrand href='/'><strong>Campus Connect</strong></MDBNavbarBrand>
                     <MDBCollapse navbar open={openNavNoTogglerThird}>
                         <MDBNavbarNav className='mr-auto mb-2 mb-lg-0'>
                             <MDBNavbarItem>
