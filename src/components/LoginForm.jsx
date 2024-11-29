@@ -134,7 +134,7 @@ export default function LoginForm() {
                     fontSize: '2.5rem',
                     fontWeight: 'bold',
                     textShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)',
-                }}>Welcome to College-Connect!</h1>
+                }}>Welcome to Campus-Connect!</h1>
                 <p className="hidden-ph" style={{ color: 'white' }}>Discover and connect with the courses offered at your institution.</p>
             </div>
         </Box>
